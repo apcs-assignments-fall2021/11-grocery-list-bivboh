@@ -6,13 +6,19 @@ public class GroceryList {
     // You don't need to change any of the values in the array
     public GroceryList() {
         arr = new String[10];
+        for (int i = 0; i < arr.length; i++){
+            arr[i] = null;
+        }
     }
 
     // Adds an item to the grocery list
     public void add(String item) {
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] == null){
-                arr[i] = item;
+        for (int x = 1; x < arr.length-1; x++){
+            if (arr[0] == null){
+                arr[0] = item;
+            }
+            else if (arr[x] == null){
+                arr[x] = item;
             }
         }
     }
@@ -33,9 +39,9 @@ public class GroceryList {
     // You **may** have an extra comma at the end
     @Override
     public String toString() {
-        String x = null;
+        String x = "Grocery List: ";
         for (int i = 0; i < arr.length; i++){
-            x += arr[i] + ",";
+            x += arr[i] + ", ";
         }
         return "";
     }
