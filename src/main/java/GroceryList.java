@@ -6,20 +6,15 @@ public class GroceryList {
     // You don't need to change any of the values in the array
     public GroceryList() {
         arr = new String[10];
-        for (int i = 0; i < arr.length; i++){
-            arr[i] = null;
-        }
     }
 
     // Adds an item to the grocery list
     public void add(String item) {
-        for (int x = 1; x < arr.length-1; x++){
-            if (arr[0] == null){
-                arr[0] = item;
-            }
-            else if (arr[x] == null){
-                arr[x] = item;
-            }
+        for (int i = 1; i < arr.length; i++){
+           if (arr[i] == null){
+               arr[i] = item;
+               break;
+           }
         }
     }
 
@@ -27,7 +22,14 @@ public class GroceryList {
     // Replaces the item with null
     // Remember to shift anything to the left if necessary
     public void remove(String item) {
-//        if (arr.index)
+        int x = 0;
+        for (int i = 0; i < arr.length-1; i++){
+            while (arr[i] == item){
+                arr[i] = null;
+                x = i;
+            }
+        }
+
     }
 
     // Returns a String representation the grocery list
@@ -41,8 +43,10 @@ public class GroceryList {
     public String toString() {
         String x = "Grocery List: ";
         for (int i = 0; i < arr.length; i++){
-            x += arr[i] + ", ";
+            if (arr[i] != null){
+                x += arr[i] + ", ";
+            }
         }
-        return "";
+        return x;
     }
 }
